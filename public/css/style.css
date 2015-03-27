@@ -1,0 +1,89 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  font-family: sans-serif;
+  text-align: center;
+  background: #eefee;
+}
+
+.trans {
+  width: 100%;
+  height: 100%;
+  opacity: .4;
+  position: fixed;
+//  background: #eefeee url('http://userserve-ak.last.fm/serve/300x300/101445173.jpg');
+  background-color: #eefeee;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-attachment: fixed;
+  background-size: cover;
+  filter: blur(100px);
+  -webkit-filter: blur(100px);
+}
+
+.content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+/* album information */
+
+
+.btn {
+  border: none;
+  padding: 10px 20px;
+  font-size: 2rem;
+  text-decoration: none;
+  color: #008cba;
+  border: 1px solid #008cba;
+  background: #fff;
+}
+.btn:hover {
+  color: #fff;
+  background: #008CBA;
+}
+
+.username {
+  font-size: 1rem;
+}
+
+input[type="text"] {
+  font-size: 1rem;
+  border: none;
+  color: #000;
+}
+
+.error {
+  padding: 10px 20px;
+  background: white;
+  border: 1px solid red;
+  color: red;
+}
+
+/* album information */
+.now {
+  width: 500px;
+  margin: 0 auto;
+}
+.now h3 {
+  
+}
+.cover {
+  margin: 0 auto;
+  text-align: center;
+  //border-radius: 50%;
+  //display: block;
+}
+
+.latest {
+  width: 100%;
+  text-align: left;
+  border: 1px solid #f00;
+}

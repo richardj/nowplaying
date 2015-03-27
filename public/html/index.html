@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Now playing</title>
+
+  <!-- bower:js --> <!-- endbower -->
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" />
+</head>
+<body ng-app="nowplaying">
+  <div class="trans"></div>
+  
+  <div class="content">
+    <form get-play>
+      <p>Hello <input type="text" placeholder="lastfm username" ng-model="username" ng-minlength="1" /></p>
+
+      <p>Click the button to get the information</p>
+
+      <p><button type="submit" class="btn" ng-click="getData()" href="javascript:(function(){  })()"><span class="username">{{ username }} is</span> now playing</button></p>
+
+      <!-- <p><small>click to post or drag to bookmark bar to create bookmarklet</small></p> -->
+
+      <div ng-show="loading">
+        <img src="http://i.imgur.com/1Lt9w1N.gif" />
+      </div>
+
+      <div class="now" ng-show="track">
+        <h2>{{ user }}</h2>
+        <h3>
+          {{ track['@attr'].nowplaying ? 'is listening to' : 'last listened to' }} 
+          {{ track.artist['#text'] }} - {{ track.name }} 
+          (from the album {{track.album['#text'] }} ) 
+        </h3>
+        <img ng-src="{{ track.image[3]['#text'] }}" class="cover" />
+      </div>
+      <p class="error" ng-show="error">
+        {{ error.message }}
+      </p>
+    </form>
+    
+    
+    <div class="latest">
+      <h2>These came before you</h2>
+      <span repeat="i in [0,1,2,3,4,5,6,7,8,9]">
+        <img ng-src="{{ track.image[2]['#text'] }}" class="" />
+      </span>  
+    </div>
+  </div>
+</body>
+</html>
