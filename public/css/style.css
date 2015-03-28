@@ -16,7 +16,6 @@ html, body {
   height: 100%;
   opacity: .4;
   position: fixed;
-//  background: #eefeee url('http://userserve-ak.last.fm/serve/300x300/101445173.jpg');
   background-color: #eefeee;
   background-repeat: no-repeat;
   background-position: center bottom;
@@ -86,4 +85,10 @@ input[type="text"] {
   width: 100%;
   text-align: left;
   border: 1px solid #f00;
+}
+
+
+.animate {
+  -webkit-transition: all linear 0.5s;
+  transition: all linear 0.5s;
 }
