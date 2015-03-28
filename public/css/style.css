@@ -54,7 +54,7 @@ html, body {
 }
 
 input[type="text"] {
-  font-size: 1rem;
+  font-size: 2rem;
   border: none;
   color: #000;
 }
@@ -91,4 +91,15 @@ input[type="text"] {
 .animate {
   -webkit-transition: all linear 0.5s;
   transition: all linear 0.5s;
+}
+
+.loading {
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-weight: bold;
+  color: #fff;
+  font-size: 2rem;
 }

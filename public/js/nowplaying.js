@@ -18,7 +18,6 @@ angular.module('nowplaying', [])
         
         $http.get(get).
         success(function(data, status, headers, config) {
-          console.log(data);
           scope.loading = false;
           if (typeof data.recenttracks !== 'undefined') {
             if (data.recenttracks.track instanceof Array) {

@@ -16,25 +16,22 @@
   
   <div class="content">
     <form get-play>
-      <p>Hello <input type="text" placeholder="lastfm username" ng-model="username" ng-minlength="1" /></p>
+      <h1>Hello <input type="text" placeholder="lastfm username" ng-model="username" ng-minlength="1" /></h1>
 
       <p>Click the button to get the information</p>
 
-      <p><button type="submit" class="btn" ng-click="getData()" href="javascript:(function(){  })()"><span class="username">{{ username }} is</span> now playing</button></p>
+      <p><button type="submit" class="btn" ng-click="getData()" href="javascript:(function(){  })()">now playing</button></p>
 
-      <!-- <p><small>click to post or drag to bookmark bar to create bookmarklet</small></p> -->
-
-        <i class="btm bt-spinner-clock bt-spin"></i>
-      <div class="animate" ng-show="loading">
+      <div class="loading animate" ng-show="loading">
         <i class="btm bt-spinner-clock bt-spin"></i>
       </div>
 
       <div class="now animate" ng-show="track">
         <h2>{{ user }}</h2>
         <h3>
-          {{ track['@attr'].nowplaying ? 'is listening to' : 'last listened to' }} 
-          {{ track.artist['#text'] }} - {{ track.name }} 
-          (from the album {{track.album['#text'] }} ) 
+         {{ username }} {{ track['@attr'].nowplaying ? 'is listening to' : 'last listened to' }} 
+         <span class="artist">{{ track.artist['#text'] }}</span> - <span class="trackname">{{ track.name }}</span>
+         <span class="album">(from the album {{track.album['#text'] }} ) </span>
         </h3>
         <img ng-src="{{ track.image[3]['#text'] }}" class="cover" />
       </div>
