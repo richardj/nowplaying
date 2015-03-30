@@ -71,14 +71,10 @@ input[type="text"] {
   width: 500px;
   margin: 0 auto;
 }
-.now h3 {
-  
-}
+
 .cover {
   margin: 0 auto;
   text-align: center;
-  //border-radius: 50%;
-  //display: block;
 }
 
 .latest {
