@@ -7,33 +7,44 @@
   <!-- bower:js -->
   <script src="../../bower_components/angular/angular.js"></script>
   <!-- endbower -->
+
   <script src="../js/nowplaying.js"></script>
   <link rel="stylesheet" href="../css/style.css" type="text/css" />
   <link rel="stylesheet" href="../vendor/black-tie/css/black-tie.min.css">
 </head>
+
 <body ng-app="nowplaying">
   <div class="animate" id="trans"></div>
   
   <div class="content">
+
+    <div class="loading animate" ng-show="loading">
+      <i class="btm bt-spinner-clock bt-spin"></i>
+    </div>
+
     <form get-play>
       <h1>Hello <input type="text" placeholder="lastfm username" ng-model="username" ng-minlength="1" /></h1>
+      <button type="submit" class="btn" ng-click="getData()" href="javascript:(function(){  })()">now playing</button>
 
-      <p>Click the button to get the information</p>
-
-      <p><button type="submit" class="btn" ng-click="getData()" href="javascript:(function(){  })()">now playing</button></p>
-
-      <div class="loading animate" ng-show="loading">
-        <i class="btm bt-spinner-clock bt-spin"></i>
-      </div>
 
       <div class="now animate-show" ng-show="track">
-        <h2>{{ user }}</h2>
-        <h3>
-         {{ username }} {{ track['@attr'].nowplaying ? 'is listening to' : 'last listened to' }} 
-         <span class="artist">{{ track.artist['#text'] }}</span> - <span class="trackname">{{ track.name }}</span>
-         <span class="album">(from the album {{track.album['#text'] }} ) </span>
-        </h3>
-        <img ng-src="{{ track.image[3]['#text'] }}" class="cover" />
+       <h2>{{ username }} {{ track['@attr'].nowplaying ? 'is listening to' : 'last listened to' }} </h2>
+       <div class="holder">
+          <div class="image">
+            <div class="artwork">
+              <div ng-show="track.image[3]['#text']">
+                <img ng-src="{{ track.image[3]['#text'] }}" class="cover" />
+                <div class="vinyl rotating"></div>
+              </div>
+            </div> 
+          </div>
+
+          <div class="info">
+            <h3><span class="artist">{{ track.artist['#text'] }}</span></h3>
+            <h3><span class="trackname">{{ track.name }}</span></h3>
+            <h3><span class="album">{{track.album['#text'] }}</span></h3>
+          </div>
+        </div>
       </div>
       <p class="error" ng-show="error">
         {{ error.message }}
