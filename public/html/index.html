@@ -32,10 +32,8 @@
        <div class="holder">
           <div class="image">
             <div class="artwork">
-              <div ng-show="track.image[3]['#text']">
-                <img ng-src="{{ track.image[3]['#text'] }}" class="cover" />
-                <div class="vinyl rotating"></div>
-              </div>
+              <img ng-src="{{ track.image[3]['#text'] }}" class="cover" ng-show="track.image[3]['#text']"/>
+              <div class="vinyl rotating"></div>
             </div> 
           </div>
 

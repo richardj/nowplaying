@@ -47,8 +47,6 @@ html, body {
   background: #008CBA;
 }
 
-/* album information */
-
 .username {
   font-size: 1rem;
 }
@@ -84,11 +82,13 @@ input[type="text"] {
   margin-right: -300px;
   float: left;
 }
+
 .now .artwork {
   width: 300px;
   height: 300px;
   background: #fff;
   position: relative;
+  border: 1px solid darkgrey;
 }
 
 .artwork img {
