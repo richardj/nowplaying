@@ -68,7 +68,7 @@ input[type="text"] {
 
 /* album information */
 .now {
-  width: 700px;
+  width: 800px;
   margin: 0 auto;
   padding: 15px;
   opacity: 1;
@@ -89,7 +89,6 @@ input[type="text"] {
   height: 300px;
   background: #fff;
   position: relative;
-  border: 1px solid #000;
 }
 
 .artwork img {
@@ -158,7 +157,7 @@ input[type="text"] {
 
 .now .info {
   min-width: 250px;
-  margin-left: 310px;
+  margin-left: 460px;
   text-align: left;
 }
 
