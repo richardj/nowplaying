@@ -1,4 +1,39 @@
 angular.module('nowplaying', [])
+.controller('mainController', function($scope, $http) {
+  $scope.formData = {};
+
+  $http.get('/api/tracks')
+    .success(function(data) {
+      $scope.tracks = data;
+      console.log(data);
+    })
+    .error(function(data) {
+      console.log('Error: ' + data);
+    });
+
+    $scope.createTrack = function() {
+      $http.post('/api/tracks', $scope.formData)
+        .success(function(data) {
+          $scope.formDAta = {}; // clears form
+          $scope.tracks = data;
+          console.log(data)
+        })
+        .error(function(data) {
+          console.log('Error: ' + data);
+        });
+    };
+
+    $scope.deleteTrack = function() {
+      $http.delete('/api/tracks/' + id)
+        .success(function(data) {
+          $scope.tracks = data;
+          console.log(data);
+        })
+        .error(function(data) {
+          console.log('Error ' + data);
+        });
+    };
+})
 .directive('getPlay', function($http) {
   return {
     link: function(scope, element, attrs) {
