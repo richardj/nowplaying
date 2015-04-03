@@ -4,8 +4,9 @@ angular.module('nowplaying', [])
 
   $http.get('/api/tracks')
     .success(function(data) {
-      console.log(data);
-      $scope.tracks = data;
+      var dataRev = data.reverse();
+      $scope.tracks = dataRev;
+      document.getElementById('trans').style.backgroundImage = "url(" + dataRev[0].track.image[3]['#text'] + ")";
     })
     .error(function(data) {
       console.log('Error: ' + data);
