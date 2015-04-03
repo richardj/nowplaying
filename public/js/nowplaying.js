@@ -4,19 +4,20 @@ angular.module('nowplaying', [])
 
   $http.get('/api/tracks')
     .success(function(data) {
-      $scope.tracks = data;
       console.log(data);
+      $scope.tracks = data;
     })
     .error(function(data) {
       console.log('Error: ' + data);
     });
 
-    this.createTrack = function() {
-      $http.post('/api/tracks', $scope.formData)
+    this.createTrack = function(track) {
+      console.log(track.name);
+
+      $http.post('/api/tracks', track)
         .success(function(data) {
-          $scope.formDAta = {}; // clears form
+          //$scope.formData = {}; // clears form
           $scope.tracks = data;
-          console.log(data)
         })
         .error(function(data) {
           console.log('Error: ' + data);
@@ -55,7 +56,6 @@ angular.module('nowplaying', [])
         
         $http.get(get).
         success(function(data, status, headers, config) {
-          console.log(data);
           scope.loading = false;
           if (typeof data.recenttracks !== 'undefined') {
             // last.fm api sends back an object when setting limit to 1 for when you currently play something

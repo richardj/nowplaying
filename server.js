@@ -24,8 +24,7 @@ app.use(methodOverride());
 
 // define our Track model
 var Track = mongoose.model('Track', {
-  name : String,
-  artist : String
+  track : Object,
 });
 
 
@@ -44,10 +43,8 @@ app.get('/api/tracks', function(req, res) {
 
 // create a track
 app.post('/api/tracks', function(req, res) {
-  console.log(req);
   Track.create({
-    name: req.body.name,
-    artist: req.body.artist['#text'],
+    track: req.body,
     done: false
   }, function(err, track) {
     if (err) {
