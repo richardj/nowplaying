@@ -6,7 +6,8 @@ angular.module('nowplaying', [])
     .success(function(data) {
       var dataRev = data.reverse();
       $scope.tracks = dataRev;
-      document.getElementById('trans').style.backgroundImage = "url(" + dataRev[0].track.image[3]['#text'] + ")";
+
+      document.getElementById('trans').style.backgroundImage = "url(" +  dataRev[0].track.image[3]['#text'] + ")";
     })
     .error(function(data) {
       console.log('Error: ' + data);
@@ -35,6 +36,15 @@ angular.module('nowplaying', [])
           console.log('Error ' + data);
         });
     };
+
+    // update the background image 
+
+
+
+    this.updateBackground = function(url) {
+      var background = document.getElementById('trans');
+      background.style.backgroundImage = "url(" + url + ")";
+    };
 })
 .directive('getPlay', function($http) {
   return {
@@ -51,7 +61,6 @@ angular.module('nowplaying', [])
         var error = false;
         var get = baseUrl + method + "&user=" + user + "&api_key=" + key + "&format=" + format + "&limit=" + limit;
         var track = {};
-        var backgroundElement = document.getElementById('trans');
 
         scope.loading = true;
         
@@ -68,7 +77,7 @@ angular.module('nowplaying', [])
               track = data.recenttracks.track; 
             }
           
-            backgroundElement.style.backgroundImage = "url(" + track.image[3]['#text'] + ")";
+            controller.updateBackground(track.image[3]['#text']);
             scope.track = track;
             controller.createTrack(track);
           }
