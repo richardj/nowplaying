@@ -11,7 +11,7 @@ angular.module('nowplaying', [])
       console.log('Error: ' + data);
     });
 
-    $scope.createTrack = function() {
+    this.createTrack = function() {
       $http.post('/api/tracks', $scope.formData)
         .success(function(data) {
           $scope.formDAta = {}; // clears form
@@ -23,7 +23,7 @@ angular.module('nowplaying', [])
         });
     };
 
-    $scope.deleteTrack = function() {
+    this.deleteTrack = function() {
       $http.delete('/api/tracks/' + id)
         .success(function(data) {
           $scope.tracks = data;
@@ -36,7 +36,9 @@ angular.module('nowplaying', [])
 })
 .directive('getPlay', function($http) {
   return {
-    link: function(scope, element, attrs) {
+    restrict: 'A',
+    controller: 'mainController',
+    link: function(scope, element, attrs, controller) {
       scope.getData = function() {
         var user = scope.username;
         var baseUrl = "http://ws.audioscrobbler.com/2.0/";
@@ -67,6 +69,7 @@ angular.module('nowplaying', [])
           
             backgroundElement.style.backgroundImage = "url(" + track.image[3]['#text'] + ")";
             scope.track = track;
+            controller.createTrack(track);
           }
           else {
             // errorrrr

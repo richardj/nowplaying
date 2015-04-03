@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="nowplaying">
 <head>
   <meta charset="utf-8">
   <title>Now playing</title>
@@ -13,10 +13,10 @@
   <link rel="stylesheet" href="vendor/black-tie/css/black-tie.min.css">
 </head>
 
-<body ng-app="nowplaying">
+<body>
   <div class="animate" id="trans"></div>
   
-  <div class="content">
+  <div class="content" ng-controller="mainController">
 
     <div class="loading animate" ng-show="loading">
       <i class="btm bt-spinner-clock bt-spin"></i>
@@ -49,15 +49,12 @@
       </p>
     </form>
     
-   <!-- 
-    <div class="latest" ng-show="track">
+    <div class="latest">
       <h2>These came before you</h2>
-      <span repeat="i in [0,1,2,3,4,5,6,7,8,9]">
+      <span repeat="track in tracks">
         <img ng-src="{{ track.image[2]['#text'] }}" class="" />
       </span>  
     </div>
-
--->
   </div>
 </body>
 </html>
