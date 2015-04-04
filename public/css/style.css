@@ -33,6 +33,10 @@ html, body {
   text-align: center;
 }
 
+/*
+ * Form
+ */
+
 .btn {
   border: none;
   padding: 10px 20px;
@@ -56,6 +60,12 @@ input[type="text"] {
   border: none;
   color: #000;
 }
+
+
+
+/*
+ * error handling
+ */
 
 .error {
   padding: 10px 20px;
@@ -162,11 +172,64 @@ input[type="text"] {
   text-align: left;
 }
 
+/* latest */
+
 .latest {
   width: 100%;
   margin-top: 400px;
   text-align: left;
 }
+
+.latest h2 {
+  text-align: center;
+}
+
+.latest .tracks {
+  display: flex;
+  flex-flow: row;
+}
+
+.latest .track {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  border: 1px solid #ccc;
+}
+
+.latest .track .more {
+  width: 300px;
+  margin-left: -125px;
+  bottom: 100%;
+  display: none;
+}
+
+.latest .track:hover .more {
+  padding: 10px;
+  display: block;
+  position: absolute;
+  border-radius: 5px;
+  background: #ccc;
+}
+
+.more:after {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  left: 50%;
+  margin-left: -10px;
+  margin-bottom: -30px;
+  border-top: 10px solid red;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid transparent;
+}
+
+
+
+
+
 
 .animate {
   -webkit-transition: all linear 0.5s;

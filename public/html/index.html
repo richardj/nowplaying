@@ -51,9 +51,17 @@
     
     <div class="latest">
       <h2>These came before you</h2>
-      <span ng-repeat="track in tracks">
-        <img ng-src="{{ track.track.image[2]['#text'] }}" class="" />
-      </span>  
+      <div class="tracks">
+        <span ng-repeat="track in tracks">
+          <div class="track" ng-show="track.track.image[1]['#text']">
+            <img ng-src="{{ track.track.image[1]['#text'] }}" class="" />
+            <div class="more tooltip">
+              <h3>{{ track.track.artist['#text'] }}</h3>
+              <h4>{{ track.track.album['#text'] }}</h4>
+            </div>
+          </div>
+        </span>
+      </div>
     </div>
   </div>
 </body>
