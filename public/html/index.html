@@ -17,15 +17,16 @@
   <div class="animate" id="trans"></div>
   
   <div class="content" ng-controller="mainController">
-
     <div class="loading animate" ng-show="loading">
       <i class="btm bt-spinner-clock bt-spin"></i>
     </div>
 
     <form get-play>
-      <h1>Hello <input type="text" placeholder="lastfm username" ng-model="username" ng-minlength="1" /></h1>
-      <button type="submit" class="btn" ng-click="getData()" href="javascript:(function(){  })()">now playing</button>
-
+      <h1>Hello, please fill out your </h1>
+      <div class="form-item">
+        <input type="text" placeholder="lastfm username" ng-model="username" ng-minlength="1" />
+        <button type="submit" class="btn" ng-click="getData()" href="javascript:(function(){  })()">get</button>
+      </div>
 
       <div class="now animate-show" ng-show="track">
        <h2>{{ username }} {{ track['@attr'].nowplaying ? 'is listening to' : 'last listened to' }} </h2>

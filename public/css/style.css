@@ -30,21 +30,42 @@ html, body {
   position: absolute;
   width: 100%;
   height: 100%;
-  text-align: center;
 }
 
 /*
  * Form
  */
 
+form {
+  width: 600px;
+  margin: 0 auto;
+}
+
+.form-item {
+  position: relative;
+  display: flex;
+  flex-flow: row;
+}
+
+input[type="text"] {
+  height: 60px;
+  font-size: 2rem;
+  border: none;
+  color: #000;
+  display: block;
+  background: red;
+}
+
 .btn {
+  height: 60px;
   border: none;
   padding: 10px 20px;
   font-size: 2rem;
+  font-weight: bold;
   text-decoration: none;
   color: #008cba;
-  border: 1px solid #008cba;
-  background: #fff;
+  /*border: 1px solid #008cba;*/
+  background: red;
 }
 .btn:hover {
   color: #fff;
@@ -55,11 +76,6 @@ html, body {
   font-size: 1rem;
 }
 
-input[type="text"] {
-  font-size: 2rem;
-  border: none;
-  color: #000;
-}
 
 
 
