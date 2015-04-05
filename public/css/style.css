@@ -50,17 +50,19 @@ form h1 {
   font-weight: normal;
   display: inline-block;
   color: #a9a9a9;
-  flex: 1;
+  color: #008cba;
+  font-weight: 400;
+  font-size: 2em;
 }
 input[type="text"] {
   min-width: 436px;
   height: 60px;
   font-size: 2rem;
+  font-weight: 400;
+  color: #008cba;
   border: none;
-  color: #000;
   background: none;
   border-bottom: 1px dashed #a9a9a9;
-  flex: 2;
 }
 
 .btn {
@@ -68,10 +70,9 @@ input[type="text"] {
   border: none;
   padding: 10px 20px;
   font-size: 2rem;
-  font-weight: bold;
+  font-weight: 400;
   text-decoration: none;
   color: #008cba;
-  /*border: 1px solid #008cba;*/
   background: #fff;
 }
 .btn:hover {
@@ -215,33 +216,36 @@ input[type="text"] {
 }
 
 .latest .track {
-  width: 100px
+  width: 100px;
   height: 100px;
-  border: 1px solid #f00;
   float: left;
   position: relative;
 }
+
+.latest .track .img-holder {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+}
+
 .latest .track img {
   display: block;
-  width: 100%;
-  border: 1px solid red;
-  height: 126px;
 }
 
 .latest .track .more {
   width: 300px;
-  margin-left: -125px;
+  height: 200px;
+  padding: 10px;
+  margin-left: -100px;
   bottom: 100%;
   display: none;
+  position: absolute;
+  background: #fff;
 }
 .latest .track:hover .more {
-  padding: 10px;
   display: block;
-  position: absolute;
-  border-radius: 5px;
-  background: #ccc;
 }
-
+/*
 .more:after {
   content: "";
   display: block;
@@ -256,7 +260,7 @@ input[type="text"] {
   border-bottom: 10px solid transparent;
   border-left: 10px solid transparent;
 }
-
+*/
 
 
 

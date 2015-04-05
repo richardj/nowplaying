@@ -24,7 +24,7 @@
     <form get-play>
       <h1>Hello,</h1>
         <input type="text" placeholder="what is your lastfm username?" ng-model="username" ng-minlength="1" />
-        <button type="submit" class="btn" ng-click="getData()" href="javascript:(function(){  })()">get</button>
+        <button type="submit" class="btn" ng-click="getData()" href="javascript:(function(){  })()">get &#x266B;</button>
 
     </form>
 
@@ -33,7 +33,7 @@
      <div class="holder">
         <div class="image">
           <div class="artwork">
-            <div class="cover default" ng-hide="track.image[3]['#text']">&#x266B;</div>
+            <div class="cover default">&#x266B;</div>
             <img ng-src="{{ track.image[3]['#text'] }}" class="cover" ng-show="track.image[3]['#text']"/>
             <div class="vinyl rotating"></div>
           </div> 
@@ -54,10 +54,13 @@
       <div class="tracks">
         <span ng-repeat="track in tracks">
           <div class="track" ng-show="track.track.image[2]['#text']">
-            <img ng-src="{{ track.track.image[2]['#text'] }}" />
+            <div class="img-holder">
+              <img ng-src="{{ track.track.image[2]['#text'] }}" />
+            </div>
             <div class="more tooltip">
-              <h3>{{ track.track.artist['#text'] }}</h3>
+              <h3><a href="#">{{ track.track.artist['#text'] }}</a></h3>
               <h4>{{ track.track.album['#text'] }}</h4>
+              <h5>{{ track.track.name }}</h5>
             </div>
           </div>
         </span>
