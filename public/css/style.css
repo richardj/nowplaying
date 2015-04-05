@@ -37,26 +37,29 @@ html, body {
  */
 
 form {
-  width: 800px;
-  margin: 50px auto 0 auto;
-  display: flex;
-  flex-flow: row;
+  width: 100%;
+  margin: 0 auto;
+  position: absolute;
+  z-index: 2;
+  text-align: center;
   background: #fff;
 }
 
 form h1 {
-  display: inline;
+  margin-bottom: 0;
+  font-weight: normal;
+  display: inline-block;
+  color: #a9a9a9;
   flex: 1;
-  flex-basis: 10px;
 }
 input[type="text"] {
-  min-width: 500px;
+  min-width: 436px;
   height: 60px;
   font-size: 2rem;
   border: none;
   color: #000;
   background: none;
-  border-bottom: 2px dashed black;
+  border-bottom: 1px dashed #a9a9a9;
   flex: 2;
 }
 
@@ -69,7 +72,7 @@ input[type="text"] {
   text-decoration: none;
   color: #008cba;
   /*border: 1px solid #008cba;*/
-  background: red;
+  background: #fff;
 }
 .btn:hover {
   color: #fff;
@@ -99,10 +102,8 @@ input[type="text"] {
 .now {
   width: 800px;
   margin: 0 auto;
-  padding: 15px;
-  opacity: 1;
-  background: #fff;
-  border-radius: 10px;
+  padding: 50px 15px 15px 15px;
+  transform: translateY(40px);
 }
 
 .holder {
@@ -117,12 +118,17 @@ input[type="text"] {
 .now .artwork {
   width: 300px;
   height: 300px;
-  background: #fff;
   position: relative;
-  border: 1px solid darkgrey;
 }
 
-.artwork img {
+.artwork .cover.default {
+  font-size: 5em;
+  text-align: center;
+  line-height: 300px;
+  background: #f7f7f7;
+}
+
+.artwork .cover {
   width: 300px;
   height: 300px;
   position: absolute;
@@ -205,15 +211,21 @@ input[type="text"] {
 }
 
 .latest .tracks {
-  display: flex;
-  flex-flow: row;
+  width: 100%;
 }
 
 .latest .track {
-  width: 64px;
-  height: 64px;
+  width: 100px
+  height: 100px;
+  border: 1px solid #f00;
+  float: left;
   position: relative;
-  border: 1px solid #ccc;
+}
+.latest .track img {
+  display: block;
+  width: 100%;
+  border: 1px solid red;
+  height: 126px;
 }
 
 .latest .track .more {
@@ -222,7 +234,6 @@ input[type="text"] {
   bottom: 100%;
   display: none;
 }
-
 .latest .track:hover .more {
   padding: 10px;
   display: block;
