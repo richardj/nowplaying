@@ -22,34 +22,32 @@
     </div>
 
     <form get-play>
-      <h1>Hello, please fill out your </h1>
-      <div class="form-item">
-        <input type="text" placeholder="lastfm username" ng-model="username" ng-minlength="1" />
+      <h1>Hello,</h1>
+        <input type="text" placeholder="please fill out your lastfm username" ng-model="username" ng-minlength="1" />
         <button type="submit" class="btn" ng-click="getData()" href="javascript:(function(){  })()">get</button>
-      </div>
 
       <div class="now animate-show" ng-show="track">
-       <h2>{{ username }} {{ track['@attr'].nowplaying ? 'is listening to' : 'last listened to' }} </h2>
-       <div class="holder">
-          <div class="image">
-            <div class="artwork">
-              <img ng-src="{{ track.image[3]['#text'] }}" class="cover" ng-show="track.image[3]['#text']"/>
-              <div class="vinyl rotating"></div>
-            </div> 
-          </div>
+    </form>
 
-          <div class="info">
-            <h3><span class="artist">{{ track.artist['#text'] }}</span></h3>
-            <h3><span class="trackname">{{ track.name }}</span></h3>
-            <h3><span class="album">{{track.album['#text'] }}</span></h3>
-          </div>
+     <h2>{{ username }} {{ track['@attr'].nowplaying ? 'is listening to' : 'last listened to' }} </h2>
+     <div class="holder">
+        <div class="image">
+          <div class="artwork">
+            <img ng-src="{{ track.image[3]['#text'] }}" class="cover" ng-show="track.image[3]['#text']"/>
+            <div class="vinyl rotating"></div>
+          </div> 
+        </div>
+
+        <div class="info">
+          <h3><span class="artist">{{ track.artist['#text'] }}</span></h3>
+          <h3><span class="trackname">{{ track.name }}</span></h3>
+          <h3><span class="album">{{track.album['#text'] }}</span></h3>
         </div>
       </div>
-      <p class="error" ng-show="error">
-        {{ error.message }}
-      </p>
-    </form>
-    
+    </div>
+    <p class="error" ng-show="error">
+      {{ error.message }}
+    </p>
     <div class="latest">
       <h2>These came before you</h2>
       <div class="tracks">

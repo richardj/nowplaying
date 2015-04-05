@@ -37,23 +37,27 @@ html, body {
  */
 
 form {
-  width: 600px;
-  margin: 0 auto;
-}
-
-.form-item {
-  position: relative;
+  width: 800px;
+  margin: 50px auto 0 auto;
   display: flex;
   flex-flow: row;
+  background: #fff;
 }
 
+form h1 {
+  display: inline;
+  flex: 1;
+  flex-basis: 10px;
+}
 input[type="text"] {
+  min-width: 500px;
   height: 60px;
   font-size: 2rem;
   border: none;
   color: #000;
-  display: block;
-  background: red;
+  background: none;
+  border-bottom: 2px dashed black;
+  flex: 2;
 }
 
 .btn {
@@ -206,8 +210,8 @@ input[type="text"] {
 }
 
 .latest .track {
-  width: 50px;
-  height: 50px;
+  width: 64px;
+  height: 64px;
   position: relative;
   border: 1px solid #ccc;
 }
