@@ -18,8 +18,9 @@ angular.module('nowplaying', [])
 
       $http.post('/api/tracks', track)
         .success(function(data) {
-          //$scope.formData = {}; // clears form
-          $scope.tracks = data;
+          var dataRev = data.reverse();
+          $scope.tracks = dataRev;
+          document.getElementById('trans').style.backgroundColor = "red";
         })
         .error(function(data) {
           console.log('Error: ' + data);

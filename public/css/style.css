@@ -17,7 +17,9 @@ html, body {
   height: 100%;
   opacity: .4;
   position: fixed;
-  background-color: #eefeee;
+  /*background-color: #eefeee; */
+  background-color: red;
+  background-blend-mode: multiply;
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
@@ -92,10 +94,14 @@ input[type="text"] {
  */
 
 .error {
+  width: 100%;
   padding: 10px 20px;
-  background: white;
-  border: 1px solid red;
+  position: absolute;
+  top: 50px;
+  border-bottom: 1px solid red;
   color: red;
+  text-align: center;
+  background: white;
 }
 
 /* album information */
