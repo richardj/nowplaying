@@ -17,9 +17,8 @@ html, body {
   height: 100%;
   opacity: .4;
   position: fixed;
-  /*background-color: #eefeee; */
-  background-color: red;
-  background-blend-mode: multiply;
+  /*background-color: red;
+  background-blend-mode: multiply;*/
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
@@ -107,7 +106,7 @@ input[type="text"] {
 /* album information */
 
 .now {
-  width: 800px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 50px 15px 15px 15px;
   transform: translateY(40px);
@@ -115,11 +114,19 @@ input[type="text"] {
 
 .holder {
   clear: both;
+  display: flex;
+  flex-flow: row;
+}
+
+.now .info {
+  padding-right: 20px;
+  flex: 1;
+  text-align: right;
 }
 
 .now .image {
-  margin-right: -300px;
-  float: left;
+  flex: 1;
+  text-align: left;
 }
 
 .now .artwork {
@@ -127,6 +134,23 @@ input[type="text"] {
   height: 300px;
   position: relative;
 }
+
+.now .artist {
+  margin-top: 0;
+  font-size: 5rem;
+}
+
+.now .trackname {
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.now .album {
+  font-size: 1.3rem;
+}
+
+
+
 
 .artwork .cover.default {
   font-size: 5em;
@@ -199,18 +223,15 @@ input[type="text"] {
   -moz-animation: rotating 2s linear infinite;
 }
 
-.now .info {
-  min-width: 250px;
-  margin-left: 460px;
-  text-align: left;
-}
 
 /* latest */
 
 .latest {
   width: 100%;
+  max-width: 960px;
   margin-top: 400px;
   text-align: left;
+  margin: 400px auto 0 auto;
 }
 
 .latest h2 {
@@ -251,7 +272,7 @@ input[type="text"] {
 .latest .track:hover .more {
   display: block;
 }
-/*
+
 .more:after {
   content: "";
   display: block;
@@ -266,7 +287,7 @@ input[type="text"] {
   border-bottom: 10px solid transparent;
   border-left: 10px solid transparent;
 }
-*/
+
 
 
 
