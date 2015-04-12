@@ -137,7 +137,9 @@ input[type="text"] {
 
 .now .artist {
   margin-top: 0;
+  padding: 10px;
   font-size: 5rem;
+  background: #fff;
 }
 
 .now .trackname {
