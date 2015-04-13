@@ -17,8 +17,8 @@ html, body {
   height: 100%;
   opacity: .4;
   position: fixed;
-  /*background-color: red;
-  background-blend-mode: multiply;*/
+  background-color: red;
+  background-blend-mode: multiply;
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
@@ -47,13 +47,14 @@ form {
 }
 
 form h1 {
-  margin-bottom: 0;
+  margin: 0;
+  padding: 10px;
   font-weight: normal;
   display: inline-block;
-  color: #a9a9a9;
-  color: #008cba;
+  color: #fff;
   font-weight: 400;
   font-size: 2em;
+  background: #000;
 }
 input[type="text"] {
   min-width: 436px;
@@ -67,18 +68,17 @@ input[type="text"] {
 }
 
 .btn {
-  height: 60px;
   border: none;
-  padding: 10px 20px;
+  padding: 13px 20px 12px 20px;
+  color: #fff;
   font-size: 2rem;
   font-weight: 400;
   text-decoration: none;
-  color: #008cba;
-  background: #fff;
+  background: #000;
 }
 .btn:hover {
-  color: #fff;
-  background: #008CBA;
+  color: #000;
+  background: #fff;
 }
 
 .username {
@@ -117,7 +117,14 @@ input[type="text"] {
   display: flex;
   flex-flow: row;
 }
-
+.now h2 {
+  margin-bottom: 0;
+  padding: 10px;
+  display: inline-block;
+  color: #fff;
+  font-size: 2rem;
+  background: #000;
+}
 .now .info {
   padding-right: 20px;
   flex: 1;
@@ -137,18 +144,26 @@ input[type="text"] {
 
 .now .artist {
   margin-top: 0;
+  margin-bottom: 0;
+  clear: both;
   padding: 10px;
-  font-size: 5rem;
+  display: inline-block;
+  font-size: 2rem;
   background: #fff;
 }
 
 .now .trackname {
+  margin: 0;
+  padding: 10px;
   font-size: 2rem;
   text-transform: uppercase;
+  text-align: right;
+  background: #fff;
 }
 
 .now .album {
   font-size: 1.3rem;
+  background: #fff;
 }
 
 
