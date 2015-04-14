@@ -61,7 +61,7 @@ input[type="text"] {
   height: 60px;
   font-size: 2rem;
   font-weight: 400;
-  color: #008cba;
+  color: #000;
   border: none;
   background: none;
   border-bottom: 1px dashed #a9a9a9;
@@ -126,7 +126,6 @@ input[type="text"] {
   background: #000;
 }
 .now .info {
-  padding-right: 20px;
   flex: 1;
   text-align: right;
 }
@@ -155,14 +154,17 @@ input[type="text"] {
 .now .trackname {
   margin: 0;
   padding: 10px;
-  font-size: 2rem;
+  font-size: 3rem;
+  display: inline-block;
   text-transform: uppercase;
-  text-align: right;
+  text-align: center;
   background: #fff;
 }
 
 .now .album {
+  padding: 10px;
   font-size: 1.3rem;
+  display: inline-block;
   background: #fff;
 }
 

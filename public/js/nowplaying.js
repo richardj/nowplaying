@@ -1,6 +1,16 @@
 angular.module('nowplaying', [])
 .controller('mainController', function($scope, $http) {
   $scope.formData = {};
+  $scope.defaultValue = "asdasd";
+
+  $scope.generateDefaultValue = function() {
+    var defaultValue = '';
+    var length = Math.random(0, 50);
+    for (var i = 0; i < length; i++) {
+      defaultValue += String.fromCharCode(0x30A0 + Math.random() * (0x30FF-0x30A0+1));
+    }
+    $scope.defaultValue = defaultValue;
+  }
 
   $http.get('/api/tracks')
     .success(function(data) {
@@ -39,8 +49,6 @@ angular.module('nowplaying', [])
     };
 
     // update the background image 
-
-
 
     this.updateBackground = function(url) {
       var background = document.getElementById('trans');

@@ -30,11 +30,11 @@
 
     <div class="now animate-show">
      <h2>{{ track['@attr'].nowplaying ? 'is listening to' : 'last listened to' }} </h2>
-     <h3 class="artist">artist: {{ track.artist['#text'] }}</h3>
+     <h3 class="artist" ng-switch>{{ track.artist['#text'] }}</h3>
      <div class="holder">
         <div class="info">
-          <h3 class="trackname">Very long trackname ft. This artist and that Artist {{ track.name }}</h3>
-          <h3 class="album"><span class="album">That very long album title which has a lot of words in it because it is pretentious {{track.album['#text'] }}</span></h3>
+          <h3 class="trackname">{{ track.name || generateDefaultValue }}</h3>
+          <h3 class="album">{{track.album['#text'] }}</h3>
         </div>
 
         <div class="image">
