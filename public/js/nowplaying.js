@@ -69,6 +69,7 @@ angular.module('nowplaying', [])
         success(function(data, status, headers, config) {
           scope.loading = false;
           if (typeof data.recenttracks !== 'undefined') {
+            scope.error = false;
             // last.fm api sends back an object when setting limit to 1 for when you currently play something
             // if not it will send an Array, fix is to set limit to two, but i don't need that right now so will use this approach
             if (data.recenttracks.track instanceof Array) {
