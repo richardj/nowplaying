@@ -30,11 +30,11 @@
 
     <div class="now animate-show">
      <h2>{{ track['@attr'].nowplaying ? 'is listening to' : 'last listened to' }} </h2>
-     <h3 class="artist" ng-switch>{{ track.artist['#text'] }}</h3>
+     <h3 class="artist" ng-switch>{{ track.artist['#text'] || "Artist" }}</h3>
      <div class="holder">
         <div class="info">
-          <h3 class="trackname">{{ track.name || generateDefaultValue }}</h3>
-          <h3 class="album">{{track.album['#text'] }}</h3>
+          <h3 class="trackname">{{ track.name || "Track name" }}</h3><br />
+          <h3 class="album">{{track.album['#text'] || "Album" }}</h3>
         </div>
 
         <div class="image">
