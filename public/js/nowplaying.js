@@ -3,14 +3,14 @@ angular.module('nowplaying', [])
   $scope.formData = {};
   $scope.defaultValue = "asdasd";
 
-  $scope.generateDefaultValue = function() {
+  this.generateDefaultValue = function() {
     var defaultValue = '';
     var length = Math.random(0, 50);
     for (var i = 0; i < length; i++) {
       defaultValue += String.fromCharCode(0x30A0 + Math.random() * (0x30FF-0x30A0+1));
     }
     $scope.defaultValue = defaultValue;
-  }
+  };
 
   $http.get('/api/tracks')
     .success(function(data) {
@@ -24,8 +24,6 @@ angular.module('nowplaying', [])
     });
 
     this.createTrack = function(track) {
-      console.log(track.name);
-
       $http.post('/api/tracks', track)
         .success(function(data) {
           var dataRev = data.reverse();
@@ -102,4 +100,11 @@ angular.module('nowplaying', [])
       };
      }
   };
+})
+.directive('defaultValue', function() {
+  return {
+    restrict: 'A',
+    template: 'asdasd'
+  };
 });
+
