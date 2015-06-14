@@ -23,8 +23,6 @@ html, body {
   background-position: center center;
   background-attachment: fixed;
   background-size: cover;
-  filter: blur(20px);
-  -webkit-filter: blur(20px);
 }
 
 .content {
