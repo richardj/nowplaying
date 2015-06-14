@@ -9,6 +9,7 @@ angular.module('nowplaying', [])
     for (var i = 0; i < length; i++) {
       defaultValue += String.fromCharCode(0x30A0 + Math.random() * (0x30FF-0x30A0+1));
     }
+    console.log(defaultValue);
     $scope.defaultValue = defaultValue;
   };
 
@@ -47,7 +48,6 @@ angular.module('nowplaying', [])
     };
 
     // update the background image 
-
     this.updateBackground = function(url) {
       var background = document.getElementById('trans');
       background.style.backgroundImage = "url(" + url + ")";
