@@ -2,7 +2,11 @@
 <html ng-app="nowplaying">
 <head>
   <meta charset="utf-8">
-  <title>Now playing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="MobileOptimized" content="width" />
+  <meta name="HandheldFriendly" content="true" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>What is playing right now?</title>
 
   <!-- bower:js -->
     <script src="vendor/angular.min.js" type="application/javascript"></script>
@@ -24,8 +28,8 @@
 
     <form get-play>
       <h1>Hello,</h1>
-        <input type="text" placeholder="what is your lastfm username?" ng-model="username" ng-minlength="1" />
-        <button type="submit" class="btn" ng-click="getData()" href="javascript:(function(){  })()">get &#x266B;</button>
+      <input type="text" placeholder="My username is" ng-model="username" ng-minlength="1" />
+      <button type="submit" class="btn" ng-click="getData()" href="javascript:(function(){  })()">get &#x266B;</button>
     </form>
 
     <div class="now animate-show">
@@ -60,9 +64,7 @@
 
         <span ng-repeat="track in tracks">
           <div class="track" ng-show="track.track.image[2]['#text']">
-            <div class="img-holder">
-              <img ng-src="{{::track.track.image[2]['#text'] }}" />
-            </div>
+            <img ng-src="{{::track.track.image[2]['#text'] }}" />
             <div class="more tooltip">
               <h3><a href="#">{{::track.track.artist['#text'] }}</a></h3>
               <h4>{{::track.track.album['#text'] }}</h4>

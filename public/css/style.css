@@ -13,7 +13,7 @@ html, body {
 }
 
 #trans {
-  width: 100%;
+/*  width: 100%;
   height: 100%;
   opacity: .4;
   position: fixed;
@@ -22,13 +22,17 @@ html, body {
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
-  background-size: cover;
+  background-size: cover;*/
+
+  display: none;
 }
 
+
+
 .content {
-  position: absolute;
+/*  position: absolute;
   width: 100%;
-  height: 100%;
+  height: 100%;*/
 }
 
 /*
@@ -36,43 +40,47 @@ html, body {
  */
 
 form {
-  width: 100%;
+/*  width: 100%;
   margin: 0 auto;
   position: absolute;
   z-index: 2;
-  text-align: center;
+  text-align: center;*/
   background: #fff;
 }
 
 form h1 {
   margin: 0;
-  padding: 10px;
-  font-weight: normal;
   display: inline-block;
-  color: #fff;
-  font-weight: 400;
-  font-size: 2em;
-  background: #000;
+  color: #000;
 }
 input[type="text"] {
-  min-width: 436px;
-  height: 60px;
-  font-size: 2rem;
-  font-weight: 400;
-  color: #000;
+  width: 200px;
+  font-family: 'Open Sans', sans-serif;
+  display: inline-block;
   border: none;
+  color: #000;
+  box-shadow: 0 1px 0px #000;
+  font-size: 1.6rem;
   background: none;
-  border-bottom: 1px dashed #a9a9a9;
+}
+
+form .btn {
+  margin-top: 10px;
 }
 
 .btn {
+  width: 90%;
   border: none;
+  margin: 0 auto;
   padding: 13px 20px 12px 20px;
+  display: block;
   color: #fff;
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: 400;
+  border-bottom: 2px solid;
   text-decoration: none;
-  background: #000;
+  background: green;
+  cursor: pointer;
 }
 .btn:hover {
   color: #000;
@@ -81,6 +89,22 @@ input[type="text"] {
 
 .username {
   font-size: 1rem;
+}
+
+@media all and (min-width: 960px) {
+  form h1 {
+    display: inline-block;
+    font-size: 2rem;
+  }
+  form input[type="text"] {
+    min-width: 436px;
+    height: 60px;
+    font-size: 2rem;
+    font-weight: 400;
+  }
+  form .btn {
+    font-size: 2rem;
+  }
 }
 
 
@@ -161,8 +185,8 @@ input[type="text"] {
 
 .now .album {
   padding: 10px;
-  font-size: 1.3rem;
   display: inline-block;
+  font-size: 1.3rem;
   background: #fff;
 }
 
@@ -265,19 +289,15 @@ input[type="text"] {
 }
 
 .latest .track {
-  width: 100px;
-  height: 100px;
+  width: 33.3%;
+  width: calc(100% / 3);
+  outline: 1px solid red;
   float: left;
   position: relative;
 }
 
-.latest .track .img-holder {
-  width: 100px;
-  height: 100px;
-  overflow: hidden;
-}
-
 .latest .track img {
+  width: 100%;
   display: block;
 }
 
@@ -315,10 +335,10 @@ input[type="text"] {
 
 
 
-.animate {
+/*.animate {
   -webkit-transition: all linear 0.5s;
   transition: all linear 0.5s;
-}
+}*/
 
 .loading {
   width: 2rem;
