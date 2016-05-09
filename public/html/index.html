@@ -15,23 +15,25 @@
 
   <script src="js/nowplaying.js" type="application/javascript"></script>
   <link rel="stylesheet" href="/css/style.css" type="text/css" />
-  <link rel="stylesheet" href="vendor/black-tie/css/black-tie.min.css">
 </head>
 
 <body>
   <div class="animate" id="trans"></div>
   
-  <div class="content" ng-controller="mainController">
+  <div class="content" ng-controller="mainController as mainCtrl">
+    <!--
     <div class="loading animate" ng-show="loading">
       <i class="btm bt-spinner-clock bt-spin"></i>
     </div>
-
-    <form get-play>
+    -->
+    <form>
       <h1>Hello,</h1>
       <input type="text" placeholder="My username is" ng-model="username" ng-minlength="1" />
-      <button type="submit" class="btn" ng-click="getData()" href="javascript:(function(){  })()">get &#x266B;</button>
+      <button type="submit" class="btn" ng-click="mainCtrl.getUsers(username)">get &#x266B;</button>
     </form>
 
+
+    <!--
     <div class="now animate-show">
      <h2>{{ track['@attr'].nowplaying ? 'is listening to' : 'last listened to' }} </h2>
      <h3 class="artist" ng-switch>{{ track.artist['#text'] || "Artist" }}</h3>
@@ -49,32 +51,30 @@
           </div> 
         </div>
       </div>
-      <div class="social">
-        <h2>Share directly on social media</h2>
-        <a href="#" title="post to twitter" class="btn">Twitter</a>
-        <a href="#" title="post to facebook" class="btn">Facebook</a>
+    </div>
+    -->
+      <!--
+    <div class="social">
+      <h2>Share directly on social media</h2>
+      <a href="#" title="post to twitter" class="btn">Twitter</a>
+      <a href="#" title="post to facebook" class="btn">Facebook</a>
+    </div>
+-->
+
+    <span class="loading" ng-show="loading"></span>
+
+    <div  class="users">
+      <div class="user" ng-show="!loading" ng-repeat="user in users">
+        <h3><a href="" ng-click="mainCtrl.getUsers(user.name)"><!--<img ng-src="{{ user.image[0]['#text'] }}" alt="avatar from {{ user.name }}" class="avatar" />-->{{ user.name }}</a></h3>
+        <h4>
+          <a href="{{ user.recenttrack.artist.url }}" title="Artist page on last.fm">{{ user.recenttrack.artist.name }}</a> - <a href="{{ user.recenttrack.url }}" title="Track page on last.fm">{{ user.recenttrack.name }}</a>
+        </h4>
+
+        <p ng-show="user.recenttrack.album.name">from the album: <a href="{{ user.recenttrack.album.url }}" title="">{{ user.recenttrack.album.name }}</a></p>
+        <!--<p>go to <a ng-href="{{ user.url }}">User profile</a></p> -->
       </div>
     </div>
-    <p class="error" ng-show="error">
-      {{ error.message }}
-    </p>
-    <div class="latest">
-      <h2>These came before you</h2>
-      <div class="tracks" track-overview>
-
-        <span ng-repeat="track in tracks">
-          <div class="track" ng-show="track.track.image[2]['#text']">
-            <img ng-src="{{::track.track.image[2]['#text'] }}" />
-            <div class="more tooltip">
-              <h3><a href="#">{{::track.track.artist['#text'] }}</a></h3>
-              <h4>{{::track.track.album['#text'] }}</h4>
-              <h5>{{::track.track.name }}</h5>
-            </div>
-          </div>
-        </span>
-
-      </div>
-    </div>
+  </div>
   </div>
 </body>
 </html>
