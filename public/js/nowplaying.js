@@ -1,17 +1,72 @@
 angular.module('nowplaying', [])
-.controller('mainController', function($scope, $http) {
-  $scope.formData = {};
-  $scope.defaultValue = "asdasd";
+.factory('musicService', function($http) {
+  return {
+    getUsers: function(url) {
+      return $http({
+        url: url,
+        method: 'GET'
+      }).then(
+        function(response) {
+          return response.data;
+        },
+        function(error) {
+          console.log(error.data); 
+        });
+    },
 
-  this.generateDefaultValue = function() {
-    var defaultValue = '';
-    var length = Math.random(0, 50);
-    for (var i = 0; i < length; i++) {
-      defaultValue += String.fromCharCode(0x30A0 + Math.random() * (0x30FF-0x30A0+1));
-    }
-    $scope.defaultValue = defaultValue;
+    
+  }
+})
+.controller('mainController', ['$scope', '$http', 'musicService', function($scope, $http, musicService) {
+  var self = this;
+
+  self.getUsers = function(username) {
+    $scope.username = username;
+    var user = username;
+    var baseUrl = "http://ws.audioscrobbler.com/2.0/";
+    var method = "?method=user.getfriends";
+    var key = "b2917a358f8427be7ab7f00adb263ffd";
+    var format = "json";
+    var limit = 1;
+    var error = false;
+    var get = baseUrl + method + "&user=" + user + "&api_key=" + key + "&format=" + format + "&recenttracks=1";
+
+    $scope.loading = true;
+
+    musicService.getUsers(get)
+    .then(function(data) {
+      $scope.loading = false;
+
+      if (data !== undefined) {
+        var users = [];
+
+        // remove useless results
+        // else it will fuck up our styling
+        for (var i = 0; i < data.friends.user.length; i++) {
+          if (data.friends.user[i].recenttrack) {
+            users.push(data.friends.user[i]); 
+          }
+        }
+        $scope.users = users;
+      }
+      else {
+        console.log("Couldn't get the stories");
+      }
+    })
   };
 
+  self.getWeeklyTrack = function() {
+    var user = $scope.username;
+    var baseUrl = "http://ws.audioscrobbler.com/2.0/";
+    var method = "?method=user.getfriends";
+    var key = "b2917a358f8427be7ab7f00adb263ffd";
+    var format = "json";
+    var limit = 1;
+    var error = false;
+    var get = baseUrl + method + "&user=" + user + "&api_key=" + key + "&format=" + format + "&recenttracks=1";
+  };
+  
+  /*
   $http.get('/api/tracks')
     .success(function(data) {
       var dataRev = data.reverse();
@@ -22,8 +77,8 @@ angular.module('nowplaying', [])
     .error(function(data) {
       console.log('Error: ' + data);
     });
-
-    this.createTrack = function(track) {
+      
+    self.createTrack = function(track) {
       $http.post('/api/tracks', track)
         .success(function(data) {
           var dataRev = data.reverse();
@@ -35,7 +90,7 @@ angular.module('nowplaying', [])
         });
     };
 
-    this.deleteTrack = function() {
+    self.deleteTrack = function() {
       $http.delete('/api/tracks/' + id)
         .success(function(data) {
           $scope.tracks = data;
@@ -45,13 +100,14 @@ angular.module('nowplaying', [])
           console.log('Error ' + data);
         });
     };
-
+    */
     // update the background image 
-    this.updateBackground = function(url) {
+    self.updateBackground = function(url) {
       var background = document.getElementById('trans');
       background.style.backgroundImage = "url(" + url + ")";
     };
-})
+}])
+/*
 .directive('getPlay', function($http) {
   return {
     restrict: 'A',
@@ -60,18 +116,25 @@ angular.module('nowplaying', [])
       scope.getData = function() {
         var user = scope.username;
         var baseUrl = "http://ws.audioscrobbler.com/2.0/";
-        var method = "?method=user.getrecenttracks&user=";
+        var method = "?method=user.getfriends";
         var key = "b2917a358f8427be7ab7f00adb263ffd";
         var format = "json";
         var limit = 1;
         var error = false;
-        var get = baseUrl + method + "&user=" + user + "&api_key=" + key + "&format=" + format + "&limit=" + limit;
+        var get = baseUrl + method + "&user=" + user + "&api_key=" + key + "&format=" + format + "&recenttracks=1";
         var track = {};
+
+        console.log(get);
 
         scope.loading = true;
         
+        
+        
+        
+         
         $http.get(get).
         success(function(data, status, headers, config) {
+          console.log(data);
           scope.loading = false;
           if (typeof data.recenttracks !== 'undefined') {
             scope.error = false;
@@ -100,6 +163,7 @@ angular.module('nowplaying', [])
      }
   };
 })
+*/
 .directive('defaultValue', function() {
   return {
     restrict: 'A',
