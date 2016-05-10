@@ -60,9 +60,21 @@
       <a href="#" title="post to facebook" class="btn">Facebook</a>
     </div>
 -->
+    
+    <div class="spotify" ng-show="users">
+      <button class="btn" ng-click="mainCtrl.createPlaylist(users)">Create Spotify Playlist</button>
+    </div>
 
     <span class="loading" ng-show="loading"></span>
 
+    <ul>
+      <li ng-repeat="user in users">
+        <a href="{{ user.recenttrack.artist.url }}" title="Artist page on last.fm">{{ user.recenttrack.artist.name }}</a> - <a href="{{ user.recenttrack.url }}" title="Track page on last.fm">{{ user.recenttrack.name }}</a>
+        <span><a href="" ng-click="mainCtrl.getUsers(user.name)">{{ user.name }}</a></span>
+        <!--<span><a ng-href="?user={{ user.name }}" ng-click="mainCtrl.getUsers(user.name)">{{ user.name }}</a></span>-->
+      </p>
+    </ul>
+    <hr />
     <div  class="users">
       <div class="user" ng-show="!loading" ng-repeat="user in users">
         <h3><a href="" ng-click="mainCtrl.getUsers(user.name)"><!--<img ng-src="{{ user.image[0]['#text'] }}" alt="avatar from {{ user.name }}" class="avatar" />-->{{ user.name }}</a></h3>

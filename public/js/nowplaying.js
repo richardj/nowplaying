@@ -55,6 +55,27 @@ angular.module('nowplaying', [])
     })
   };
 
+  self.createPlaylist = function(users) {
+    var userList = users;
+    var artists = [];
+    var track = {};
+
+    var baseUrl = "https://api.spotify.com";
+    var q = "/v1/search?=";
+    var type = "type=track";
+
+    console.log(userList);
+
+    for (var i = 0; i < userList.length; i++) {
+      artists.push({
+        artist:  userList[i].recenttrack.artist.name,
+        name: userList[i].recenttrack.name
+      });
+    }
+
+    console.log(artists);
+  };
+
   self.getWeeklyTrack = function() {
     var user = $scope.username;
     var baseUrl = "http://ws.audioscrobbler.com/2.0/";
@@ -65,6 +86,7 @@ angular.module('nowplaying', [])
     var error = false;
     var get = baseUrl + method + "&user=" + user + "&api_key=" + key + "&format=" + format + "&recenttracks=1";
   };
+
   
   /*
   $http.get('/api/tracks')
@@ -164,10 +186,4 @@ angular.module('nowplaying', [])
   };
 })
 */
-.directive('defaultValue', function() {
-  return {
-    restrict: 'A',
-    template: 'asdasd'
-  };
-});
 
