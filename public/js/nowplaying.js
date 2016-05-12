@@ -13,8 +13,19 @@ angular.module('nowplaying', [])
           console.log(error.data); 
         });
     },
-
-    
+    getTrackInformation: function(url) {
+      return $http({
+        url: url,
+        method: 'GET'
+      }).then(
+        function(response) {
+          return response;
+        },
+        function(error) {
+          console.log(error);
+        }
+      );
+    }
   }
 })
 .controller('mainController', ['$scope', '$http', 'musicService', function($scope, $http, musicService) {
@@ -61,19 +72,39 @@ angular.module('nowplaying', [])
     var track = {};
 
     var baseUrl = "https://api.spotify.com";
-    var q = "/v1/search?=";
-    var type = "type=track";
-
-    console.log(userList);
+    var q = "/v1/search?q=";
+    var type = "&type=track";
+    var url;
+    var tracklist = [];
 
     for (var i = 0; i < userList.length; i++) {
+      /*
       artists.push({
         artist:  userList[i].recenttrack.artist.name,
         name: userList[i].recenttrack.name
       });
+      */
+      artists.push(userList[i].recenttrack.name);
     }
 
-    console.log(artists);
+    //url = baseUrl + q + artists[2].name + type;
+
+    var musicPromise = function() {
+     url = baseUrl + q + artists.name + type;
+    console.log(url);
+     return musicService.getTrackInformation(url)
+      .then(function(data) {
+        tracklist.push(data);
+      },
+      function(error) {
+        console.log(error)
+      });
+    };
+
+    var actions = artists.map(musicPromise);
+    var results = Promise.all(actions);
+
+    results.then(console.log(results));
   };
 
   self.getWeeklyTrack = function() {
